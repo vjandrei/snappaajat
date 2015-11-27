@@ -12,4 +12,64 @@
  *
  */
 
+@import url(https://fonts.googleapis.com/css?family=Lobster+Two:400,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
 @import "bootstrap";
+
+$snap-yellow: 	#FFFC00;
+$main-yellow: 	#E8B419;
+$snap-black: 	#333;
+
+html{
+	height: 100%;
+}
+
+body{
+	position: relative;
+	background: url('../images/hipsters.jpg') no-repeat;
+	background-size: cover;
+	height: 100%;
+	&:before{
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(255, 204, 0, 0.70);
+		background-size: cover;
+		z-index: -10;
+	}
+}
+
+header{
+	color: white;
+	#snappi-suomi-logo{
+		margin: 20px auto;
+		width: 150px;
+		height: 150px;
+		background: url('../images/snappi-suomi.png') no-repeat;
+		background-size: 100%;
+		background-position: center center;
+	}
+	
+	h1{
+		font-family: 'Lobster Two', cursive;
+		text-shadow: 1px 1px 1px #ffae00;
+		font-size: 4rem;
+		margin-bottom: 20px;
+	}
+	
+	h4{
+		font-family: 'Open Sans', sans-serif;
+		text-shadow: 1px 1px 1px #ffae00;
+		font-size: 1.5rem;
+	}
+	
+	a{
+		color: $snap-black;
+		font-family: 'Open Sans', sans-serif;
+		font-size: 0.9rem;
+		font-weight: 600;
+	}
+}

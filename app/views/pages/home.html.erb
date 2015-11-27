@@ -2,11 +2,43 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 text-center">
-				<h1>Pages#home</h1>
-				<p>Find me in app/views/pages/home.html.erb</p>
-				<%= link_to "Kirjaudu", about_path %>
+				<div id="snappi-suomi-logo"></div>
+				<h1>Snäppääjät</h1>
+				<h4>Löydä kotimaisia snäppääjiä ja lisää oma snapchat profiilisi listaan</h4>	
+				<% if user_signed_in? %>
+				<% else %>
+				<%= link_to "Kirjaudu", new_user_session_path %><br/>
+				<%= link_to "Rekisteröidy", new_user_registration_path %>
+				<% end %> 
+				
+				<% if user_signed_in? %>
+		          <%= link_to "Kirjaudu ulos", destroy_user_session_path, method: :delete %><br/>
+		          <%= link_to "Muokkaa profiiliasi", edit_user_registration_path %>
+		        <% else %>
+		        <% end %>
+		        
+				
 			</div>
 		</div>
 	</div>
 </header>
+
+<section id="profiles">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="row">
+					<% @profiles.each do |profile| %>
+					<div class="col-xs-12 col-sm-4">	
+				    <%= profile.name %>
+				    <%= link_to 'Show', profile %>
+				    <%= link_to 'Edit', edit_profile_path(profile) %>
+				    <%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %>
+					</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
