@@ -30,10 +30,13 @@
 				<div class="row">
 					<% @profiles.each do |profile| %>
 					<div class="col-xs-12 col-sm-4">	
-				    <%= profile.name %>
+				    <%= profile.name %><br/>
+				    <%= profile.user.email if profile.user %><br/>
 				    <%= link_to 'Show', profile %>
+				    <% if profile.user == current_user %>
 				    <%= link_to 'Edit', edit_profile_path(profile) %>
 				    <%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %>
+				    <% end %>
 					</div>
 					<% end %>
 				</div>
