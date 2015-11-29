@@ -1,4 +1,4 @@
-<%= form_for(@profile) do |f| %>
+<%= form_for @profile, html: { multipart: true }  do |f| %>
   <% if @profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
@@ -10,12 +10,28 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class="field">
+    <%= f.label :image, 'Kuva' %><br>
+    <%= f.file_field :image %>
+  </div>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name, 'Nimesi' %><br>
     <%= f.text_field :name %>
   </div>
+  
+  <div class="field">
+    <%= f.label :nickname, 'Snapchat käyttäjänimesi' %><br>
+    <%= f.text_field :nickname %>
+  </div>
+  
+   <div class="field">
+    <%= f.label :description, 'Kirjoita itsestäni lyhyt esittely' %><br>
+    <%= f.text_area :description %>
+  </div>
+  
   <div class="actions">
-    <%= f.submit %>
+    <button class="linkbutton"><%= f.submit %></button>
   </div>
 <% end %>

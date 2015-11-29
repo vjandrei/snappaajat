@@ -18,18 +18,166 @@
 
 $snap-yellow: 	#FFFC00;
 $main-yellow: 	#E8B419;
-$snap-black: 	#333;
+$snap-black: 	#16191a;
+$snap-red: #ff4545;
+
+.linkbutton{
+	background: none;
+	border: solid 2px white;
+	padding: 10px 20px;
+	border-radius: 30px;
+	min-width: 200px;
+	display: inline-block;
+	margin: 15px auto;
+	color: white;
+	&:hover{
+		background: white;
+		color: $snap-black;	
+		text-shadow: none;
+		text-decoration: none;
+		input{
+			color: $snap-black;	
+			text-shadow: none;
+		}
+	}
+	input{
+		background: none;
+		border: none;
+		font-family: 'Open Sans', sans-serif;
+		color: white;
+		text-decoration: none;
+		text-shadow: 1px 1px 1px rgba(255, 174, 0, 0.23);
+		&:hover{
+			text-shadow: none;
+			color: $snap-black;
+		}
+	}
+}
+
+/*
+.linkbutton{
+	background: none;
+	border: solid 2px white;
+	padding: 10px 20px;
+	border-radius: 30px;
+	min-width: 100px;
+	display: block;
+	margin: 15px auto;
+	&:hover{
+		background: white;
+		a{
+			color: $snap-black;	
+			text-shadow: none;
+		}
+		input{
+			color: $snap-black;	
+			text-shadow: none;
+		}
+	}
+	a{
+		display: inline-block;
+		font-family: 'Open Sans', sans-serif;
+		color: white;
+		text-decoration: none;
+		text-shadow: 1px 1px 1px rgba(255, 174, 0, 0.23);
+		&:hover{
+			color: $snap-black;
+		}
+	}
+	input{
+		background: none;
+		border: none;
+		font-family: 'Open Sans', sans-serif;
+		color: white;
+		text-decoration: none;
+		text-shadow: 1px 1px 1px rgba(255, 174, 0, 0.23);
+		&:hover{
+			text-shadow: none;
+			color: $snap-black;
+		}
+	}
+}
+*/
+
+form{
+	.field{
+		position: relative;
+		text-align: left;
+		margin: 20px 0px;
+		input{
+			background: none;
+			border: solid 2px white;
+			padding: 10px 20px;
+			border-radius: 30px;
+			width: 100%;
+			display: block;
+			margin: 10px auto;
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 400;
+			font-size: 0.8rem;
+		}
+		.field_with_errors{
+			input{
+				border-color: $snap-red;
+			}
+		}
+		label{
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 400;
+			font-size: 0.8rem;
+			color: $main-yellow;
+			margin-bottom: 2px;
+		}
+		textarea{
+			width: 100%;
+			height: 200px;
+			border-radius: 10px;
+			border: solid 2px white;
+			background: none;
+			margin: 10px auto;
+			padding: 10px 20px;
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 400;
+			font-size: 0.8rem;
+		}
+		small{
+			display: block;
+			font-size: 0.7rem;
+		}
+	}
+}
+
+#error_explanation{
+	padding: 20px;
+	background: #ff4545;
+	h2{
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
+	ul{
+		
+		list-style: none;
+	}
+}
 
 html{
 	height: 100%;
 }
 
 body{
+	background: $snap-black;
+}
+
+header{
+	color: white;
 	position: relative;
 	background: url('../images/hipsters.jpg') no-repeat;
 	background-size: cover;
+	background-position: center center;
+	min-height: 429px;
 	height: 100%;
-	&:before{
+	padding: 20px 0px;
+	&:after{
 		content: '';
 		position: absolute;
 		top: 0;
@@ -37,13 +185,11 @@ body{
 		width: 100%;
 		height: 100%;
 		background: rgba(255, 204, 0, 0.70);
-		background-size: cover;
-		z-index: -10;
 	}
-}
-
-header{
-	color: white;
+	.container{
+		position: relative;
+		z-index: 10;
+	}
 	#snappi-suomi-logo{
 		margin: 20px auto;
 		width: 150px;
@@ -52,7 +198,14 @@ header{
 		background-size: 100%;
 		background-position: center center;
 	}
-	
+	a{
+		h1{
+		color: white;
+		}
+		&:hover{
+		text-decoration: none;	
+		}
+	}
 	h1{
 		font-family: 'Lobster Two', cursive;
 		text-shadow: 1px 1px 1px #ffae00;
@@ -71,5 +224,79 @@ header{
 		font-family: 'Open Sans', sans-serif;
 		font-size: 0.9rem;
 		font-weight: 600;
+	}
+}
+
+#profiles{
+	background: $snap-black;
+	.col-sm-4{
+		padding: 0;
+	}
+	.snapchatProfileContainer{
+		background: $snap-black;
+		margin-top: 10px;
+	}
+	.snapchatProfileContent{
+		position: relative;
+		z-index: 20;
+	}
+	.snapchatProfileContentDetails{
+		padding: 20px 30px 30px;
+		color: white;
+	}
+	
+	.profileName{
+		color: $main-yellow;
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 600;
+		font-size: 0.9rem;
+		text-transform: uppercase;
+		margin-bottom: 10px;
+	}
+	.profileNickName{
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 400;
+		font-size: 1.2rem;
+	}
+	.profileAbout{
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 400;
+		font-size: 0.8rem;
+		color: #b0b0b0;
+		margin: 20px 0px;
+	}
+	.snapchatProfileContentImage{
+		
+	}
+	.img-bg{
+		position: relative;
+		width: 100%;
+		height: auto;
+		top: 0;
+		text-align: center;
+		z-index: 10;
+	}
+}
+
+.pageContent{
+	margin: 50px 0px;
+	color: white;
+	h2{
+		font-family: 'Open Sans', sans-serif;
+		text-transform: uppercase;
+		font-weight: 600;
+		margin-bottom: 20px;
+	}
+	h3{
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 400;
+		font-size: 1rem;
+		margin-bottom: 20px;
+		line-height: 1.5rem;
+	}
+	p{
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 400;
+		font-size: 0.8rem;
 	}
 }
