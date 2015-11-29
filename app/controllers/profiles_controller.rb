@@ -1,7 +1,5 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /profiles
   # GET /profiles.json
@@ -16,7 +14,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/new
   def new
-    @profile = current_user.profiles.build
+    @profile = Profile.new
   end
 
   # GET /profiles/1/edit
@@ -26,7 +24,7 @@ class ProfilesController < ApplicationController
   # POST /profiles
   # POST /profiles.json
   def create
-    @profile = current_user.profiles.build(profile_params)
+    @profile = Profile.new(profile_params)
 
     respond_to do |format|
       if @profile.save
@@ -68,14 +66,9 @@ class ProfilesController < ApplicationController
     def set_profile
       @profile = Profile.find(params[:id])
     end
-    
-    def correct_user
-	    @profile = current_user.profiles.find_by(id: params[:id])
-		redirect_to profiles_path, notice: "Not authorized to edit this pin" if @profile.nil?
-	end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:name, :image)
+      params.require(:profile).permit(:name, :nickname, :description, :category_id)
     end
 end

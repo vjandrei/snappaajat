@@ -11,10 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151129123009) do
+ActiveRecord::Schema.define(version: 20151129203826) do
 
   create_table "profiles", force: :cascade do |t|
     t.string   "name"
+    t.string   "nickname"
+    t.text     "description"
+    t.integer  "category_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "user_id"
@@ -22,8 +25,6 @@ ActiveRecord::Schema.define(version: 20151129123009) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "nickname"
-    t.string   "description"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"

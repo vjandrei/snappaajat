@@ -2,6 +2,12 @@
 
 one:
   name: MyString
+  nickname: MyString
+  description: MyText
+  category_id: 1
 
 two:
   name: MyString
+  nickname: MyString
+  description: MyText
+  category_id: 1
