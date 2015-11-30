@@ -36,10 +36,8 @@
 							<div class="snapchatProfileContent">
 								<div class="snapchatProfileContentDetails">
 									<h1 class="profileName"><%= profile.name %></h1>
-									<h2 class="profileNickName">@vjandrei</h2>
-									<p class="profileAbout">
-										Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem. Quisque ligula eros ullamcorper quis, lacinia quis facilisis sed sapien. Mauris varius diam vitae arcu.
-									</p>
+									<h2 class="profileNickName">@<%= profile.nickname %></h2>
+									<p class="profileAbout"><%= profile.description %></p>
 								    <%= link_to 'Show', profile %>
 								    <% if profile.user == current_user %>
 								    <%= link_to 'Edit', edit_profile_path(profile) %>
