@@ -2,6 +2,7 @@
 server '162.243.240.140', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:vjandrei/snappaajat.git'
+set :branch, fetch(:branch, "develop")
 set :application,     'snappaaja'
 set :user,            'deploy'
 set :puma_threads,    [4, 16]
