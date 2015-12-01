@@ -1,5 +1,5 @@
 # Change these
-server '162.243.240.140', port: 192.168.0.101, roles: [:web, :app, :db], primary: true
+server '162.243.240.140', port: '192.168.0.101', roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:vjandrei/snappaajat.git'
 set :application,     'snappaaja'
