@@ -1,0 +1,28 @@
+<header>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<a href="/"><div id="snappi-suomi-logo"></div></a>
+				<a href="/"><h1>Snäppääjät</h1></a>
+				<h4>Löydä kotimaisia snäppääjiä ja lisää oma snapchat profiilisi listaan</h4>	
+			</div>
+		</div>
+	</div>
+</header>
+
+<section id="addNewProfile" class="pageContent">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-sm-offset-3  text-center">
+
+			<h2>Lisää oma profiilisi</h2>
+			<h3>Täytä alla oleva lomake ja olet mukana Snäpääjät yhteisössä.</h3>
+			
+			<%= render 'form' %>
+			
+			<%= link_to 'Takaisin', profiles_path %>
+
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,56 @@
+<header>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<a href="/"><div id="snappi-suomi-logo"></div></a>
+				<a href="/"><h1>Snäppääjät</h1></a>
+				<h4>Löydä kotimaisia snäppääjiä ja lisää oma snapchat profiilisi listaan</h4>	
+				<% if user_signed_in? %>
+				<% else %>
+					<%= link_to "Kirjaudu", new_user_session_path, :class => "linkbutton"  %>
+					<%= link_to "Rekisteröidy", new_user_registration_path, :class => "linkbutton"  %>
+				<% end %> 
+				
+				<% if user_signed_in? %>
+		        	<%= link_to "Kirjaudu ulos", destroy_user_session_path, method: :delete, :class => "linkbutton" %>
+					<%= link_to "Muokkaa käyttäjätunnustasi", edit_user_registration_path, :class => "linkbutton" %>
+		        <% else %>
+		        <% end %>
+			</div>
+		</div>
+	</div>
+</header>
+
+<section id="profiles">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="row">
+					
+					<% @profiles.each do |profile| %>
+					<div class="col-xs-12 col-sm-4">
+						<div class="snapchatProfileContentImage">
+						    <%= image_tag profile.image.url(:medium), :class => "img-bg" %>	
+						</div>
+						<div class="snapchatProfileContainer">
+							<div class="snapchatProfileContent">
+								<div class="snapchatProfileContentDetails">
+									<h1 class="profileName"><%= profile.name %></h1>
+									<h2 class="profileNickName">@<%= profile.nickname %></h2>
+									<p class="profileAbout"><%= profile.description %></p>
+								    <%= link_to 'Show', profile %>
+								    <% if profile.user == current_user %>
+								    <%= link_to 'Edit', edit_profile_path(profile) %>
+								    <%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %>
+								    <% end %>
+							    </div>
+						    </div>
+					    </div>
+					</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+

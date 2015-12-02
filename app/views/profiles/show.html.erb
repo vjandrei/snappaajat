@@ -1,0 +1,32 @@
+<header>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<a href="/"><div id="snappi-suomi-logo"></div></a>
+				<a href="/"><h1>Snäppääjät</h1></a>
+				<h4>Löydä kotimaisia snäppääjiä ja lisää oma snapchat profiilisi listaan</h4>	
+			</div>
+		</div>
+	</div>
+</header>
+
+<section id="showProfile" class="pageContent">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-sm-offset-3  text-center">
+			
+			<h2><%= @profile.name %></h2>
+			<h3>Alla näet profiilisi tiedot, voit lisää useampia profiileita ja ne näkyvät alla olevasta listasta.</h3>
+			 
+			 
+			  
+			  <%= image_tag @profile.image.url(:medium), :class => "image-responsive" %>
+		
+			
+			<%= link_to 'Edit', edit_profile_path(@profile) %> |
+			<%= link_to 'Back', profiles_path %>
+
+			</div>
+		</div>
+	</div>
+</section>
