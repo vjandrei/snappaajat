@@ -1,1 +1,0 @@
-Suomi snäppi yhteisö.
