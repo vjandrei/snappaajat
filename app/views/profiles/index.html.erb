@@ -5,6 +5,17 @@
 				<a href="/"><div id="snappi-suomi-logo"></div></a>
 				<a href="/"><h1>Snäppääjät</h1></a>
 				<h4>Löydä kotimaisia snäppääjiä ja lisää oma snapchat profiilisi listaan</h4>	
+				<% if user_signed_in? %>
+				<% else %>
+					<%= link_to "Kirjaudu", new_user_session_path, :class => "linkbutton"  %>
+					<%= link_to "Rekisteröidy", new_user_registration_path, :class => "linkbutton"  %>
+				<% end %> 
+				
+				<% if user_signed_in? %>
+		        	<%= link_to "Kirjaudu ulos", destroy_user_session_path, method: :delete, :class => "linkbutton" %>
+					<%= link_to "Muokkaa käyttäjätunnustasi", edit_user_registration_path, :class => "linkbutton" %>
+		        <% else %>
+		        <% end %>
 			</div>
 		</div>
 	</div>
