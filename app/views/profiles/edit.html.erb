@@ -1,6 +1,26 @@
-<h1>Editing Profile</h1>
+<header>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<a href="/"><div id="snappi-suomi-logo"></div></a>
+				<a href="/"><h1>Snäppääjät</h1></a>
+				<h4>Löydä kotimaisia snäppääjiä ja lisää oma snapchat profiilisi listaan</h4>	
+			</div>
+		</div>
+	</div>
+</header>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @profile %> |
-<%= link_to 'Back', profiles_path %>
+<section id="showProfile" class="pageContent">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-sm-offset-3  text-center">
+			<h1>Muokkaa profiilia</h1>
+			
+			<%= render 'form' %>
+			
+			<%= link_to 'Näytä', @profile %> |
+			<%= link_to 'Omat profiilit', profiles_path %>
+			</div>
+		</div>
+	</div>
+</section>

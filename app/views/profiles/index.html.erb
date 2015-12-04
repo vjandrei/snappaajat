@@ -28,20 +28,27 @@
 			<h2>Profiilisi tiedot</h2>
 			<h3>Alla näet profiilisi tiedot, voit lisää useampia profiileita ja ne näkyvät alla olevasta listasta.</h3>
 			
-			<% if  @profiles %>
-			<p>Et ole vielä lisännyt profiiliasi</p>
+			<% if  %>
 			<%= link_to 'Lisää profiili', new_profile_path, :class => "linkbutton" %>
 			<% else %>
+			<p>Et ole vielä lisännyt profiiliasi</p>
 			<% end %>
 			
+			
+			<!--<button class="linkbutton"><%= link_to 'Lisää profiilisi', new_profile_path %></button>-->
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-sm-offset-3  text-center">
+			
 			<% @profiles.each do |profile| %>
-				<%= profile.name %>
-				<%= link_to 'Show', profile %>
+				<%= profile.name %><br/>
+				<%= link_to 'Näytä', profile %>
 				<% if profile.user == current_user %>
-					<%= link_to 'Edit', edit_profile_path(profile) %>
-					<%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %>
+					<%= link_to 'Muokkaa', edit_profile_path(profile) %>
+					<%= link_to 'Poista', profile, method: :delete, data: { confirm: 'Are you sure?' } %>
 				<% end %>
-			<% end %>
+			<% end %>	
 			
 			
 			<!--<button class="linkbutton"><%= link_to 'Lisää profiilisi', new_profile_path %></button>-->

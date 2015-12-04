@@ -2,11 +2,18 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :find_profile, only: [:show, :edit, :update, :destroy]
 
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = Profile.all
+	if params[:category].blank?
+		@profiles = Profile.all.order("created_at DESC")
+	else
+		@category_id = Category.find_by(name: params[:category]).id
+		@profile = Profile.where(category_id: @category_id).order("created_at DESC")
+	end
+    
   end
 
   # GET /profiles/1
@@ -76,6 +83,10 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:name, :nickname, :description, :image)
+      params.require(:profile).permit(:name, :nickname, :description, :image, :category_id)
     end
+    
+    def find_profile
+	    @profile = Profile.find(params[:id])
+	end
 end

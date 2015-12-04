@@ -28,7 +28,7 @@
 				  <div class="field">
 				    <%= f.label :password, 'Salasana' %>
 				    <% if @minimum_password_length %>
-				    <small>( Vähintää  <%= @minimum_password_length %> merkkiä)</small>
+				    <small>( Vähintää  <%= @minimum_password_length %> merkkiä ps: käytä salasanaa jota et käytä sähkostissa tai muualla )</small>
 				    <% end %>
 				    <%= f.password_field :password, autocomplete: "off" %>
 				  </div>

@@ -21,3 +21,10 @@
 
 en:
   hello: "Hello world"
+
+
+en:
+  helpers:
+    submit:
+      create: "Lisää profiili"
+      update: "Päivitä profiili"

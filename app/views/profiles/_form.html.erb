@@ -25,6 +25,11 @@
     <%= f.label :nickname, 'Snapchat käyttäjänimesi' %><br>
     <%= f.text_field :nickname %>
   </div>
+  <div class="field">
+	  <%= f.label :category_id, 'Snappi luokkasi' %><br>
+	  <%= f.collection_select :category_id, Category.all, :id, :name, {promp: 'Valitse'}, {class: 'c-select'}%>
+
+  </div>
   
    <div class="field">
     <%= f.label :description, 'Kirjoita itsestäni lyhyt esittely' %><br>
