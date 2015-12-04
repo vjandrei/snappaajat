@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
 		@profiles = Profile.all.order("created_at DESC")
 	else
 		@category_id = Category.find_by(name: params[:category]).id
-		@profile = Profile.where(category_id: @category_id).order("created_at DESC")
+		@profiles = Profile.where(category_id: @category_id).order("created_at DESC")
 	end
     
   end
