@@ -1,51 +1,90 @@
+<%= render "layouts/header" %>
 
-<% @profiles.each do |profile| %>
-<% if profile.user == current_user %>
-<section id="addNewProfile" class="pageContent">
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-sm-offset-3  text-center">
-			<h2>Profiilisi tiedot</h2>
-			<h3>Alla näet profiilisi tiedot, voit lisää useampia profiileita ja ne näkyvät alla olevasta listasta.</h3>
-			<%= link_to 'Lisää profiili', new_profile_path, :class => "linkbutton" %>
-			<p>Et ole vielä lisännyt profiiliasi</p>
-			</div>
+<section id="filterMenu">
+	<nav class="navbar">
+	<button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">&#9776; Filtteröinti</button>
+	<div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+	
+	<a class="navbar-brand" href="#">Filtteröinti</a>
+	<ul class="nav navbar-nav">
+		<% Category.first(4).each do |category| %>
+			<li class="nav-item">
+				<%= link_to category.name, profiles_path(category: category.name) , :class => "nav-link" %>
+			</li>
+		<% end %>
+		<li class="nav-item dropdown">
+		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+			Lisää aihetunnisteita
+		</a>
+		<div class="dropdown-menu">
+		  <% Category.all.each do |category| %>
+		  <%= link_to category.name, profiles_path(category: category.name) , :class => "dropdown-item" %>
+		  <% end %>
 		</div>
-		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-sm-offset-3  text-center">
-				<%= profile.name %><br/>
-				<%= link_to 'Näytä', profile %>
-				<%= link_to 'Muokkaa', edit_profile_path(profile) %>
-				<%= link_to 'Poista', profile, method: :delete, data: { confirm: 'Are you sure?' } %>
-			</div>
-		</div>
+		</li>
+		<li class="push-right">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">&#9776; omat profiilit</button>
+		</li>
+	  </ul>
 	</div>
+	</nav>
 </section>
-<% end %>
-<% end %>	
+
+<section id="ownProfiles">
+<div class="collapse" id="exCollapsingNavbar">
+  <div class="bg-inverse p-a">
+    <div class="row">
+		<% if user_signed_in? %>
+		<div class="col-xs-12 col-sm-3">
+			<div id="noProfileAdded">
+				<h1>Omat profiilit</h1>
+				<h2>Lisää oma snapchat tunnuksesi painamalla alla olevaa nappulaa.</h2>
+				<%= link_to 'Lisää profiili', new_profile_path, :class => "linkbutton" %>
+				<h3>Voi lisää useampia tunnuksia sivulle.</h3>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-9">
+			<div id="userProfilesTable">
+			<h1>Lista omista profiileista</h1>
+			<table class="table table-striped">
+				<thead>
+				<tr>
+				  <th>Nimi</th>
+				  <th>Käyttäjätunnus</th>
+				  <th>Toiminto</th>
+				</tr>
+				</thead>
+				<tbody>
+					<% @profiles.each do |profile| %>
+					<% if profile.user == current_user %>
+					<tr>
+						<td><%= profile.name %></td>
+						<td>@<%= profile.nickname %></td>
+						<td>
+							<%= link_to 'Muokkaa', edit_profile_path(profile) %>
+							<%= link_to 'Poista', profile, method: :delete, data: { confirm: 'Are you sure?' } %>
+						</td>
+					</tr>
+					<% end %>
+					<% end %>
+				</tbody>							
+			</table>	
+			</div>
+		</div>
+		<% end %>
+	</div>
+  </div>
+</div>
+</section>
 
 
 <section id="profiles">
 	<div class="container-fluid">
 		<div class="row">
-			<% flash.each do |name, msg| %>
-			     <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
-			<% end %>
-		</div>
-		<div class="row">
-			<div class="col-xs-12">
-				<% Category.all.each do |category| %>
-					<%= link_to category.name, profiles_path(category: category.name) %>
-				<% end %>
-			</div>
-		</div>
-		
-		<div class="row">
 			<div class="col-xs-12">
 				<div class="row">
-					
 					<% @profiles.each do |profile| %>
-					<div class="col-xs-12 col-sm-4">
+					<div class="col-xs-12 col-sm-3">
 						<div class="snapchatProfileContentImage">
 						    <%= image_tag profile.image.url(:medium), :class => "img-bg" %>    
 						</div>
@@ -55,14 +94,13 @@
 									<h1 class="profileName"><%= profile.name %></h1>
 									<h2 class="profileNickName">@<%= profile.nickname %></h2>
 									<p class="profileAbout"><%= profile.description %></p>
-									
-									<%= profile.category_id %>
-									
-								    <%= link_to 'Näytä', profile %>
-								    <% if profile.user == current_user %>
-								    <%= link_to 'Muokkaa', edit_profile_path(profile) %>
-								    <%= link_to 'Poista', profile, method: :delete, data: { confirm: 'Are you sure?' } %>
-								    <% end %>
+									<div class="profileLinks">
+									    <%= link_to 'Näytä', profile %>
+									    <% if profile.user == current_user %>
+									    <%= link_to 'Muokkaa', edit_profile_path(profile) %>
+									    <%= link_to 'Poista', profile, method: :delete, data: { confirm: 'Oletko varma' } %>
+									     <% end %>
+								    </div>
 							    </div>
 						    </div>
 					    </div>

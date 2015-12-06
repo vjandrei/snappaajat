@@ -191,7 +191,7 @@ header{
 	}
 }
 
-#noProfileAdded{
+#noProfileAdded, #userProfilesTable{
 	padding: 30px;
 	color: white;
 	h1{
@@ -416,4 +416,55 @@ form{
 		font-weight: 400;
 		font-size: 0.8rem;
 	}
+}
+
+#userProfilesTable{
+	table{
+		thead{
+			tr{
+				th{
+					border-top: 0px;
+					padding: 0px;
+					font-family: 'Open Sans', sans-serif;
+					font-weight: 400;
+					font-size: 1rem;
+				}
+			}
+		}
+		tbody{
+			tr{
+				background: none;
+				
+				th{
+					border: none;
+					padding: 0px;
+				}
+				td{
+					border: none;
+					padding: 5px 0px;
+					font-family: 'Open Sans', sans-serif;
+					font-weight: 400;
+					font-size: 0.8rem;
+					a{
+						color: white;
+						font-family: 'Open Sans', sans-serif;
+						font-weight: 400;
+						font-size: 0.8rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+#ownProfiles{
+	.navbar{
+		border-radius: 0;
+	}
+}
+
+.navbar-toggler{
+	font-family: 'Open Sans', sans-serif;	
+	font-size: 1rem;
+	color: white;
 }

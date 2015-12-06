@@ -4,6 +4,7 @@
 	<nav class="navbar">
 	<button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">&#9776; Filtteröinti</button>
 	<div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+	
 	<a class="navbar-brand" href="#">Filtteröinti</a>
 	<ul class="nav navbar-nav">
 		<% Category.first(4).each do |category| %>
@@ -21,6 +22,9 @@
 		  <% end %>
 		</div>
 		</li>
+		<li class="push-right">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">&#9776; omat profiilit</button>
+		</li>
 	  </ul>
 	</div>
 	</nav>
@@ -32,27 +36,59 @@
 	<% end %>
 </div>
 
+<section id="ownProfiles">
+<div class="collapse" id="exCollapsingNavbar">
+  <div class="bg-inverse p-a">
+    <div class="row">
+		<% if user_signed_in? %>
+		<div class="col-xs-12 col-sm-3">
+			<div id="noProfileAdded">
+				<h1>Omat profiilit</h1>
+				<h2>Lisää oma snapchat tunnuksesi painamalla alla olevaa nappulaa.</h2>
+				<%= link_to 'Lisää profiili', new_profile_path, :class => "linkbutton" %>
+				<h3>Voi lisää useampia tunnuksia sivulle.</h3>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-9">
+			<div id="userProfilesTable">
+			<h1>Lista omista profiileista</h1>
+			<table class="table table-striped">
+				<thead>
+				<tr>
+				  <th>Nimi</th>
+				  <th>Käyttäjätunnus</th>
+				  <th>Toiminto</th>
+				</tr>
+				</thead>
+				<tbody>
+					<% @profiles.each do |profile| %>
+					<% if profile.user == current_user %>
+					<tr>
+						<td><%= profile.name %></td>
+						<td>@<%= profile.nickname %></td>
+						<td>
+							<%= link_to 'Muokkaa', edit_profile_path(profile) %>
+							<%= link_to 'Poista', profile, method: :delete, data: { confirm: 'Are you sure?' } %>
+						</td>
+					</tr>
+					<% end %>
+					<% end %>
+				</tbody>							
+			</table>	
+			</div>
+		</div>
+		<% end %>
+	</div>
+  </div>
+</div>
+</section>
+
+
 <section id="profiles">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="row">
-					
-					<% if user_signed_in? %>
-					<% unless @profiles.blank? %>
-					<div class="col-xs-12 col-sm-3">
-						<div id="noProfileAdded">
-							<h1>Et ole vielä listalla.</h1>
-							<h2>Lisää oma snapchat tunnuksesi painamalla alla olevaa nappulaa.</h2>
-							<%= link_to 'Lisää profiili', new_profile_path, :class => "linkbutton" %>
-							<h3>Voi lisää useampia tunnuksia sivulle.</h3>
-						</div>
-					</div>
-					<% else %>
-					
-					<% end %>
-					<% end %>
-					
 					<% @profiles.each do |profile| %>
 					<div class="col-xs-12 col-sm-3">
 						<div class="snapchatProfileContentImage">
