@@ -40,7 +40,6 @@
 					
 					<% if user_signed_in? %>
 					<% unless @profiles.blank? %>
-					<% else %>
 					<div class="col-xs-12 col-sm-3">
 						<div id="noProfileAdded">
 							<h1>Et ole vielä listalla.</h1>
@@ -49,6 +48,8 @@
 							<h3>Voi lisää useampia tunnuksia sivulle.</h3>
 						</div>
 					</div>
+					<% else %>
+					
 					<% end %>
 					<% end %>
 					
