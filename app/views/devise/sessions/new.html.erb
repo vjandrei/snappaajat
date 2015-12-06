@@ -1,21 +1,12 @@
-<header>
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 text-center">
-				<a href="/"><div id="snappi-suomi-logo"></div></a>
-				<a href="/"><h1>Snäppääjät</h1></a>
-				<h4>Löydä kotimaisia snäppääjiä ja lisää oma snapchat profiilisi listaan</h4>	
-			</div>
-		</div>
-	</div>
-</header>
+<%= render "layouts/header" %>
 
 <section id="logIn" class="pageContent">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-sm-offset-3  text-center">
+			<div class="col-xs-12 col-sm-2"></div>
+			<div class="col-xs-12 col-sm-8 text-center">
 
-			<h2>Kirjaudu sisään</h2>
+			<h1>Kirjaudu sisään</h1>
 			<h3>Täytä alla olevat tiedot</h3>
 			
 			<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -43,6 +34,7 @@
 			
 			<%= render "devise/shared/links" %>
 			</div>
+			<div class="col-xs-12 col-sm-2"></div>
 		</div>
 	</div>
 </section>
