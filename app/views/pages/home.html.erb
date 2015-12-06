@@ -1,43 +1,15 @@
 <%= render "layouts/header" %>
 
-<section id="filterMenu">
-	<nav class="navbar">
-	<button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">&#9776; Filtteröinti</button>
-	<div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
-	
-	<a class="navbar-brand" href="#">Filtteröinti</a>
-	<ul class="nav navbar-nav">
-		<% Category.first(4).each do |category| %>
-			<li class="nav-item">
-				<%= link_to category.name, profiles_path(category: category.name) , :class => "nav-link" %>
-			</li>
-		<% end %>
-		<li class="nav-item dropdown">
-		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-			Lisää aihetunnisteita
-		</a>
-		<div class="dropdown-menu">
-		  <% Category.all.each do |category| %>
-		  <%= link_to category.name, profiles_path(category: category.name) , :class => "dropdown-item" %>
-		  <% end %>
-		</div>
-		</li>
-		<% if user_signed_in? %>
-		<li class="push-right">
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">&#9776; omat profiilit</button>
-		</li>
-		<% else %>
-		
-		<% end %>
-	  </ul>
-	</div>
-	</nav>
-</section>
+<%= render "layouts/filters" %>
 
-<div class="row">
-	<% flash.each do |name, msg| %>
-	     <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
-	<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 text-center">
+			<% flash.each do |name, msg| %>
+		    	<%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+			<% end %>
+		</div>
+	</div>
 </div>
 
 <section id="ownProfiles">
