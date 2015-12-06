@@ -58,3 +58,4 @@ en:
       not_saved:
         one: "1 virhe esti käyttäjän luomisen, ole hyvä ja täytä virheelliset kohdat"
         other: "%{count} virhettä esti käyttäjän luomisen, ole hyvä ja täytä virheelliset kohdat"
+      too_long: "Bio teksti on ( suurin merkkimäärä on %{count} merkkiä )"

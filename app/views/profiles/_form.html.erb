@@ -1,8 +1,7 @@
 <%= form_for @profile, html: { multipart: true }  do |f| %>
   <% if @profile.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
-
+      <h2>Virhe on tapahtunnut</h2>
       <ul>
       <% @profile.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,17 +9,14 @@
       </ul>
     </div>
   <% end %>
-  
   <div class="field">
     <%= f.label :image, 'Kuva' %><br>
     <%= f.file_field :image %>
   </div>
-
   <div class="field">
     <%= f.label :name, 'Nimesi' %><br>
     <%= f.text_field :name %>
   </div>
-  
   <div class="field">
     <%= f.label :nickname, 'Snapchat käyttäjänimesi' %><br>
     <%= f.text_field :nickname %>
@@ -28,14 +24,12 @@
   <div class="field">
 	  <%= f.label :category_id, 'Snappi luokkasi' %><br>
 	  <%= f.collection_select :category_id, Category.all, :id, :name, {promp: 'Valitse'}, {class: 'c-select'}%>
-
   </div>
-  
-   <div class="field">
-    <%= f.label :description, 'Kirjoita itsestäni lyhyt esittely' %><br>
+  <div class="field">
+    <%= f.label :description, 'Kirjoita itsestäni lyhyt esittely ( 160 merkkiä )' %>
     <%= f.text_area :description %>
+    <div id="counter">160</div>
   </div>
-  
   <div class="actions">
     <button class="linkbutton"><%= f.submit %></button>
   </div>

@@ -33,3 +33,14 @@ var isFileInputSupported = (function () {
 if (isFileInputSupported) {
   document.documentElement.className += " fileinput";
 }
+
+$( document ).ready(function() {
+
+	var maxLength = 160;
+	$('#profile_description').keyup(function() {
+	  var length = $(this).val().length;
+	  var length = maxLength-length;
+	  $('#counter').text(length);
+	});
+
+});

@@ -63,6 +63,8 @@ a{
 	}
 }
 
+
+
 .linkbutton{
 	background: none;
 	border: solid 2px white;
@@ -218,56 +220,6 @@ header{
 	}
 }
 
-/*
-
-.alertLink{
-	color: $snap-red;
-}
-
-.smallSnapIcon{
-	width: 18px;
-	height: 18px;
-	background: url('../images/small-icon.png') no-repeat;
-	display: inline-block;
-    position: relative;
-    background-size: 100%;
-}
-
-.linkbutton{
-	background: none;
-	border: solid 2px white;
-	background: white;
-	padding: 10px 20px;
-	border-radius: 30px;
-	min-width: 200px;
-	display: inline-block;
-	margin: 15px auto;
-	color: $snap-black;	
-	&:hover{
-		background: none;
-		border: solid 2px white;
-		color: $snap-black;	
-		text-shadow: none;
-		text-decoration: none;
-		input{
-			color: $snap-black;	
-			text-shadow: none;
-		}
-	}
-	input{
-		background: none;
-		border: none;
-		font-family: 'Open Sans', sans-serif;
-		color: white;
-		text-decoration: none;
-		text-shadow: 1px 1px 1px rgba(255, 174, 0, 0.23);
-		&:hover{
-			text-shadow: none;
-			color: $snap-black;
-		}
-	}
-}
-*/
 form{
 	.field{
 		position: relative;
@@ -325,6 +277,15 @@ form{
 			display: block;
 			font-size: 0.7rem;
 		}
+	}
+}
+
+.field_with_errors{
+	label{
+		color: $snap-red!important;
+	}
+	input{
+		border-color: $snap-red;
 	}
 }
 
