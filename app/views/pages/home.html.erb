@@ -1,40 +1,4 @@
-<header>
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-xs-12 col-sm-5 text-center" id="pageBrandNavLinks">
-			<div class="headerContent">
-				<div id="snappi-suomi-logo"></div>
-				<% if user_signed_in? %>
-				<%= link_to "Kirjaudu ulos", destroy_user_session_path, method: :delete, :class => "linkbutton" %>
-				<% else %>
-				<%= link_to "Kirjaudu", new_user_session_path, :class => "linkbutton"  %>
-				<% end %> 
-				<div class="col-xs-12">
-					<% if user_signed_in? %>
-					<%= link_to "Muokkaa käyttäjätunnustasi", edit_user_registration_path, :class => "" %>
-					<% else %>
-					<% end %> 
-				</div>
-			</div>
-		</div>
-		<div class="col-xs-12 col-sm-7" id="resentProfiles">
-			<div class="headerContent">
-				<div id="brandHeading">
-					<a href="/"><h1>Snappaajat.fi</h1></a>
-					<h2>Löydä kotimaisia snäppääjiä ja lisää oma snapchat profiilisi listaan</h2>
-					<%= link_to "Rekisteröidy", new_user_registration_path, :class => "linkbutton" %>
-					<div class="row">
-						<nav class="navbar">
-							<a href="/about">Mikä ihmeen Snappaajat.fi</a>
-							<a href="">Ota yhteyttä</a>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-</header>
+<%= render "layouts/header" %>
 
 <section id="filterMenu">
 	<nav class="navbar">
@@ -73,7 +37,10 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="row">
-
+					
+					<% if user_signed_in? %>
+					<% unless @profiles.blank? %>
+					<% else %>
 					<div class="col-xs-12 col-sm-3">
 						<div id="noProfileAdded">
 							<h1>Et ole vielä listalla.</h1>
@@ -82,6 +49,8 @@
 							<h3>Voi lisää useampia tunnuksia sivulle.</h3>
 						</div>
 					</div>
+					<% end %>
+					<% end %>
 					
 					<% @profiles.each do |profile| %>
 					<div class="col-xs-12 col-sm-3">
@@ -94,11 +63,12 @@
 									<h1 class="profileName"><%= profile.name %></h1>
 									<h2 class="profileNickName">@<%= profile.nickname %></h2>
 									<p class="profileAbout"><%= profile.description %></p>
-										<%= profile.category_id %>
-								    <%= link_to 'Näytä', profile %>
-								    <% if profile.user == current_user %>
-								    <%= link_to 'Muokkaa', edit_profile_path(profile) %>
-								    <%= link_to 'Poista', profile, method: :delete, data: { confirm: 'Are you sure?' } %>
+									<div class="profileLinks">
+									    <%= link_to 'Näytä', profile %>
+									    <% if profile.user == current_user %>
+									    <%= link_to 'Muokkaa', edit_profile_path(profile) %>
+									    <%= link_to 'Poista', profile, method: :delete, data: { confirm: 'Oletko varma' } %>
+								    </div>
 								    <% end %>
 							    </div>
 						    </div>
@@ -110,3 +80,5 @@
 		</div>
 	</div>
 </section>
+<!--, renderer: BootstrapPagination::Rails-->
+<%= will_paginate @profiles ,previous_label: 'Uusimmat', next_label: 'Vanhimmat', inner_window: 1, outer_window: 0 %>

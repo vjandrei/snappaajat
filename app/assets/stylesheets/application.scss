@@ -39,7 +39,10 @@ a{
 }
 h1{
 	font-family: 'Open Sans', sans-serif;
-	font-size: 3rem;
+	font-size: 5vw;
+	@include media-breakpoint-down(xs) {
+	font-size: 2rem;	
+	}
 	margin-bottom: 20px;
 	font-weight: 800;
 }
@@ -78,7 +81,7 @@ a{
 		text-shadow: none;
 		text-decoration: none;
 		input{
-			color: $snap-black;	
+			color: white;	
 			text-shadow: none;
 		}
 	}
@@ -86,12 +89,10 @@ a{
 		background: none;
 		border: none;
 		font-family: 'Open Sans', sans-serif;
-		color: white;
 		text-decoration: none;
-		text-shadow: 1px 1px 1px rgba(255, 174, 0, 0.23);
 		&:hover{
 			text-shadow: none;
-			color: $snap-black;
+			color: white;
 		}
 	}
 }
@@ -208,6 +209,15 @@ header{
 	}
 }
 
+.alertLink{
+	color: $snap-red;
+	font-weight: 300;
+	font-size: 0.8rem;
+	&:hover{
+		color: white;
+	}
+}
+
 /*
 
 .alertLink{
@@ -284,7 +294,7 @@ form{
 			font-family: 'Open Sans', sans-serif;
 			font-weight: 400;
 			font-size: 0.8rem;
-			color: $main-yellow;
+			color: $snap-yellow;
 			margin-bottom: 2px;
 		}
 		textarea{
@@ -333,6 +343,7 @@ form{
 
 #profiles{
 	background: #000000;
+	margin: 10px 0px;
 	.col-sm-4{
 		padding: 0;
 	}
@@ -345,15 +356,13 @@ form{
 		z-index: 20;
 	}
 	.snapchatProfileContentDetails{
-		padding: 20px 30px 30px;
 		color: white;
 	}
-	
 	.profileName{
-		color: $main-yellow;
+		color: $snap-yellow;
 		font-family: 'Open Sans', sans-serif;
 		font-weight: 600;
-		font-size: 0.9rem;
+		font-size: 0.7rem;
 		text-transform: uppercase;
 		margin-bottom: 10px;
 	}
@@ -361,13 +370,20 @@ form{
 		font-family: 'Open Sans', sans-serif;
 		font-weight: 400;
 		font-size: 1.2rem;
+		color: white;
 	}
 	.profileAbout{
 		font-family: 'Open Sans', sans-serif;
 		font-weight: 400;
 		font-size: 0.8rem;
-		color: #b0b0b0;
-		margin: 20px 0px;
+		color: #e3e3e3;
+		margin: 10px 0px;
+	}
+	.profileLinks{
+		a{
+			color: white;
+			font-size: 0.7rem;
+		}
 	}
 	.snapchatProfileContentImage{
 		
@@ -385,11 +401,8 @@ form{
 .pageContent{
 	margin: 50px 0px;
 	color: white;
-	h2{
-		font-family: 'Open Sans', sans-serif;
-		text-transform: uppercase;
-		font-weight: 600;
-		margin-bottom: 20px;
+	a{
+		color: white;
 	}
 	h3{
 		font-family: 'Open Sans', sans-serif;
