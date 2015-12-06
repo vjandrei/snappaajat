@@ -18,9 +18,7 @@
 			<h2><%= @profile.name %></h2>
 			<h3>Alla näet profiilisi tiedot, voit lisää useampia profiileita ja ne näkyvät alla olevasta listasta.</h3>
 			 
-			 
-			  
-			  <%= image_tag @profile.image.url(:medium), :class => "image-responsive" %>
+			<%= image_tag @profile.image.url(:medium), :class => "image-responsive" %>
 		
 			
 			<%= link_to 'Edit', edit_profile_path(@profile) %> |

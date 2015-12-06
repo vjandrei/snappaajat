@@ -21,21 +21,59 @@ $main-yellow: 	#E8B419;
 $snap-black: 	#16191a;
 $snap-red: #ff4545;
 
-.alertLink{
-	color: $snap-red;
+html{
+	height: 100%;
+}
+
+body{
+	background: #000000;
+}
+
+a{
+	h1{
+	color: $snap-black;
+	}
+	&:hover{
+	text-decoration: none;	
+	}
+}
+h1{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 3rem;
+	margin-bottom: 20px;
+	font-weight: 800;
+}
+h2{
+	color: $snap-black;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.2rem;
+}
+
+a{
+	color: $snap-black;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 0.9rem;
+	font-weight: 600;
+	&:hover{
+		color: $snap-black;
+		opacity: 0.6;
+	}
 }
 
 .linkbutton{
 	background: none;
 	border: solid 2px white;
+	background: white;
 	padding: 10px 20px;
 	border-radius: 30px;
 	min-width: 200px;
 	display: inline-block;
 	margin: 15px auto;
-	color: white;
+	color: $snap-black;	
+	text-align: center;
 	&:hover{
-		background: white;
+		background: none;
+		border: solid 2px white;
 		color: $snap-black;	
 		text-shadow: none;
 		text-decoration: none;
@@ -58,34 +96,152 @@ $snap-red: #ff4545;
 	}
 }
 
+header{
+	position: relative;
+	width: 100%;
+	.row{
+		.headerContent{
+			position: relative;
+			z-index: 20;
+			padding: 10px;
+		}
+		#pageBrandNavLinks{
+			padding: 0px;
+			background: $snap-yellow;
+			min-height: 335px;
+			@include media-breakpoint-down(xs) {
+				min-height: 200px;	
+				padding-bottom: 10px;
+			}
+			a{
+				font-size: 0.8rem;
+			}
+		}
+		#resentProfiles{
+			padding: 0px;
+			color: white;
+			position: relative;
+			background: url('/images/hipsters.jpg') no-repeat;
+			background-size: cover;
+			background-position: center center;
+			min-height: 335px;
+			height: 100%;
+			&:after{
+				content: '';
+				background: rgba(255,249,4,0.8);
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+
+		}
+	}
+	#snappi-suomi-logo{
+		margin: 20px auto;
+		width: 150px;
+		height: 150px;
+		background: url('../images/logo.gif') no-repeat;
+		background-size: 100%;
+		background-position: center center;
+		@include media-breakpoint-down(xs) {
+			width: 80px;
+			height: 80px;	
+		}
+	}	
+	#brandHeading{
+		margin: 30px 30px 0px 30px;
+		@include media-breakpoint-down(xs) {
+			text-align: center;
+			.navbar{
+				a{
+					display: block;
+					margin: 10px 0px;
+				}
+			}
+		}
+	}
+	nav{
+		a{
+			font-size: 0.7rem;
+		}
+	}
+}
+
+#filterMenu{
+	.navbar{
+		border-radius: 0;
+		background: $snap-black;
+		a{
+			color: white;
+		}
+	}
+	a.navbar-brand{
+		color: $snap-yellow;
+	}
+	a.dropdown-item{
+		color: $snap-black;
+	}
+	.navbar-brand{
+		@include media-breakpoint-down(xs) {
+			display: none;
+		}
+	}
+}
+
+#noProfileAdded{
+	padding: 30px;
+	color: white;
+	h1{
+		font-size: 2rem;
+	}
+	h2{
+		font-size: 1rem;
+		color: white;
+		font-weight: 400;
+		line-height: 1.2rem;
+	}
+	h3{
+		font-size: 0.8rem;
+		font-weight: 300;
+	}
+}
+
 /*
+
+.alertLink{
+	color: $snap-red;
+}
+
+.smallSnapIcon{
+	width: 18px;
+	height: 18px;
+	background: url('../images/small-icon.png') no-repeat;
+	display: inline-block;
+    position: relative;
+    background-size: 100%;
+}
+
 .linkbutton{
 	background: none;
 	border: solid 2px white;
+	background: white;
 	padding: 10px 20px;
 	border-radius: 30px;
-	min-width: 100px;
-	display: block;
+	min-width: 200px;
+	display: inline-block;
 	margin: 15px auto;
+	color: $snap-black;	
 	&:hover{
-		background: white;
-		a{
-			color: $snap-black;	
-			text-shadow: none;
-		}
+		background: none;
+		border: solid 2px white;
+		color: $snap-black;	
+		text-shadow: none;
+		text-decoration: none;
 		input{
 			color: $snap-black;	
 			text-shadow: none;
-		}
-	}
-	a{
-		display: inline-block;
-		font-family: 'Open Sans', sans-serif;
-		color: white;
-		text-decoration: none;
-		text-shadow: 1px 1px 1px rgba(255, 174, 0, 0.23);
-		&:hover{
-			color: $snap-black;
 		}
 	}
 	input{
@@ -102,7 +258,6 @@ $snap-red: #ff4545;
 	}
 }
 */
-
 form{
 	.field{
 		position: relative;
@@ -176,80 +331,13 @@ form{
 	}
 }
 
-html{
-	height: 100%;
-}
-
-body{
-	background: $snap-black;
-}
-
-header{
-	color: white;
-	position: relative;
-	background: url('../images/hipsters.jpg') no-repeat;
-	background-size: cover;
-	background-position: center center;
-	min-height: 429px;
-	height: 100%;
-	padding: 20px 0px;
-	&:after{
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: rgba(255, 204, 0, 0.70);
-	}
-	.container{
-		position: relative;
-		z-index: 10;
-	}
-	#snappi-suomi-logo{
-		margin: 20px auto;
-		width: 150px;
-		height: 150px;
-		background: url('../images/snappi-suomi.png') no-repeat;
-		background-size: 100%;
-		background-position: center center;
-	}
-	a{
-		h1{
-		color: white;
-		}
-		&:hover{
-		text-decoration: none;	
-		}
-	}
-	h1{
-		font-family: 'Lobster Two', cursive;
-		text-shadow: 1px 1px 1px #ffae00;
-		font-size: 4rem;
-		margin-bottom: 20px;
-	}
-	
-	h4{
-		font-family: 'Open Sans', sans-serif;
-		text-shadow: 1px 1px 1px #ffae00;
-		font-size: 1.5rem;
-	}
-	
-	a{
-		color: $snap-black;
-		font-family: 'Open Sans', sans-serif;
-		font-size: 0.9rem;
-		font-weight: 600;
-	}
-}
-
 #profiles{
-	background: $snap-black;
+	background: #000000;
 	.col-sm-4{
 		padding: 0;
 	}
 	.snapchatProfileContainer{
-		background: $snap-black;
+		background: #000000;
 		margin-top: 10px;
 	}
 	.snapchatProfileContent{
