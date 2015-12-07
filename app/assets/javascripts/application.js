@@ -15,6 +15,7 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+//= require maj-text-counter
 
 
 // Detect file input support
@@ -35,12 +36,14 @@ if (isFileInputSupported) {
 }
 
 $( document ).ready(function() {
+	
+	$('#profile_description').majTextCounter({
+		carLimit: 160,
+		words: "",
+		letters: "kirjainta",
+		separator: "",
+		maximum: " Maksimimäärä : ",
 
-	var maxLength = 160;
-	$('#profile_description').keyup(function() {
-	  var length = $(this).val().length;
-	  var length = maxLength-length;
-	  $('#counter').text(length);
 	});
 
 });
