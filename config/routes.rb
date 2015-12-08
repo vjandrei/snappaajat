@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 	get 'about' => 'pages#about'
 	get 'users/:id' => 'home#show'
 	get 'profiles' => 'profiles#index' 
+	get 'tags' => 'tags#index' 
 	get 'tags/:tag', to: 'profiles#index', as: :tag
 
   # The priority is based upon order of creation: first created -> highest priority.
