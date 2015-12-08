@@ -17,6 +17,7 @@
 //= require_tree .
 //= require maj-text-counter
 //= require jquery.tokeninput
+//= require profiles
 
 
 // Detect file input support

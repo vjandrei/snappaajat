@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/capistrano/rbenv.git
+  revision: 6f1216cfe0a6b4ac23ca4eaf8acf012e8165d247
+  specs:
+    capistrano-rbenv (2.0.3)
+      capistrano (~> 3.1)
+      sshkit (~> 1.3)
+
+GIT
   remote: git://github.com/thoughtbot/paperclip.git
   revision: e4fd86576e3dcd5faed14fb4d40aa2a87736d9c2
   specs:
@@ -73,9 +81,6 @@ GEM
     capistrano-rails (1.1.5)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
-    capistrano-rbenv (2.0.3)
-      capistrano (~> 3.1)
-      sshkit (~> 1.3)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -190,6 +195,9 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.1)
+    trivial_tokens (0.0.3)
+      jquery-rails
+      rails (~> 4.2, >= 4.2.1)
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -218,7 +226,7 @@ DEPENDENCIES
   capistrano (~> 3.4.0)
   capistrano-passenger
   capistrano-rails (~> 1.1.3)
-  capistrano-rbenv (~> 2.0.3)
+  capistrano-rbenv!
   coffee-rails (~> 4.1.0)
   devise (~> 3.5, >= 3.5.2)
   jbuilder (~> 2.0)
@@ -232,6 +240,7 @@ DEPENDENCIES
   spring
   sqlite3
   therubyracer
+  trivial_tokens (~> 0.0.3)
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
