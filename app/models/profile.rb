@@ -10,7 +10,7 @@ class Profile < ActiveRecord::Base
 
 	
 	def user_params
-    params.require(:profile).permit(:nickname, :description, {category_ids: []})
+    params.require(:profile).permit(:nickname, :description, {category_ids: []}, :tag_list)
 	end
 	
 end
