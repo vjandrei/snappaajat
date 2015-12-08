@@ -54,6 +54,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-12">
+				<% @profiles.each_slice(3).each do |group| %>
 				<div class="row">
 					<% @profiles.each do |profile| %>
 					<div class="col-xs-12 col-sm-3">
@@ -85,6 +86,7 @@
 					</div>
 					<% end %>
 				</div>
+				<% end %>
 			</div>
 		</div>
 	</div>
