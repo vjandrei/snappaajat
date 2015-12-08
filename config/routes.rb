@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 	get 'about' => 'pages#about'
 	get 'users/:id' => 'home#show'
 	get 'profiles?category/:name' => 'pages#home'
+	get 'tags/:tag', to: 'profiles#index', as: :tag
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -9,6 +9,7 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
+ *= require token-input-facebook
  */
  
  
@@ -343,6 +344,14 @@ form{
 		a{
 			color: white;
 			font-size: 0.7rem;
+		}
+	}
+	.tags{
+		a{
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 400;
+			font-size: 0.8rem;
+			color: white;	
 		}
 	}
 	.snapchatProfileContentImage{

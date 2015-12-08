@@ -26,15 +26,11 @@
     <%= f.text_field :nickname %>
   </div>
   
-   <%  Category.all.each do |category| %>
-   <div class="field">
-	   <div class="checkbox">
-   <%= check_box_tag "profile[category_ids][]", category.id, @profile.category_ids.include?(category.id), id: dom_id(category) %>
-   <%= label_tag dom_id(category), category.name %><br>
-   </div>
-   </div>
-   <% end %>
-  
+	<div class="field">
+	    <%= f.label :tags, "Aihetunnisteet ( erottele pilkulla )" %>
+	    <%= f.text_field :tag_list %>
+	</div>
+
    <div class="field">
     <%= f.label :description, 'Kirjoita itsestäni lyhyt esittely ( 160 merkkiä )' %>
     <%= f.text_area :description %>

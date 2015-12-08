@@ -28,6 +28,7 @@ gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'will_paginate', '~> 3.0', '>= 3.0.7'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 gem 'maj-text-counter-rails'
+gem 'acts-as-taggable-on'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

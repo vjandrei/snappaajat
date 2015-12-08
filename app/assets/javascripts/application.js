@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require_tree .
 //= require maj-text-counter
+//= require jquery.tokeninput
 
 
 // Detect file input support
@@ -43,7 +44,6 @@ $( document ).ready(function() {
 		letters: "kirjainta",
 		separator: "",
 		maximum: " Maksimimäärä : ",
-
 	});
 
 });

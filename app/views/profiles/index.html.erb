@@ -66,12 +66,18 @@
 									<h1 class="profileName"><%= profile.name %></h1>
 									<h2 class="profileNickName">@<%= profile.nickname %></h2>
 									<p class="profileAbout"><%= profile.description %></p>
+									<% profile.tags.any? %>
+										<% profile.tags.each do |tag| %>
+											<span class="tags">
+											#<%= link_to tag.name, tag_path(tag.name) %>
+											</span>  
+									<% end %>
 									<div class="profileLinks">
 									    <%= link_to 'Näytä', profile %>
 									    <% if profile.user == current_user %>
 									    <%= link_to 'Muokkaa', edit_profile_path(profile) %>
 									    <%= link_to 'Poista', profile, method: :delete, data: { confirm: 'Oletko varma' } %>
-									     <% end %>
+									    <% end %>
 								    </div>
 							    </div>
 						    </div>
