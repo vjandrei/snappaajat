@@ -12,12 +12,12 @@
 				  <%= devise_error_messages! %>
 				
 				  <div class="field">
-				    <%= f.label :email, 'Sähköpostisi'  %><small>( Ei näytetä missään )</small>
+				    <%= f.label :email, 'Sähköpostisi *'  %><small>( Ei näytetä missään )</small>
 				    <%= f.email_field :email, autofocus: true %>
 				  </div>
 				
 				  <div class="field">
-				    <%= f.label :password, 'Salasana' %>
+				    <%= f.label :password, 'Salasana *' %>
 				    <% if @minimum_password_length %>
 				    <small>( Vähintää  <%= @minimum_password_length %> merkkiä ps: käytä salasanaa jota et käytä sähkostissa tai muualla )</small>
 				    <% end %>
@@ -25,7 +25,7 @@
 				  </div>
 				
 				  <div class="field">
-				    <%= f.label :password_confirmation, 'Salasana vahvistus' %><br />
+				    <%= f.label :password_confirmation, 'Salasana vahvistus *' %><br />
 				    <%= f.password_field :password_confirmation, autocomplete: "off" %>
 				  </div>
 				

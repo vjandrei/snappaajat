@@ -129,6 +129,9 @@ header{
 			background-position: center center;
 			min-height: 335px;
 			height: 100%;
+			@include media-breakpoint-down(xs) {
+				min-height:245px
+			}
 			&:after{
 				content: '';
 				background: rgba(255,249,4,0.8);
@@ -164,6 +167,14 @@ header{
 				}
 			}
 		}
+		.linkbutton{
+				position: absolute;
+				top: 199px;
+			@include media-breakpoint-down(xs) {
+				position: relative;
+				top:0;
+			}
+		}
 	}
 	nav{
 		a{
@@ -189,6 +200,19 @@ header{
 	.navbar-brand{
 		@include media-breakpoint-down(xs) {
 			display: none;
+		}
+	}
+	.navbar-nav{
+		@include media-breakpoint-down(xs) {
+		margin-top: 20px;
+		}
+	}
+	.nav-item{
+		@include media-breakpoint-down(xs) {
+			display: block;
+			width: 100%;
+			text-align: left;
+			margin: 10px 0px 10px 0px;
 		}
 	}
 }
