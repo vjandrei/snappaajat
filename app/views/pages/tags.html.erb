@@ -2,26 +2,6 @@
 
 <%= render "layouts/filters" %>
 
-<% if user_signed_in? %>
-<% if params[:tag].present?  %>
-<% else %>
-<section id="ownProfiles">
-  <div class="bg-inverse p-a">
-    <div class="row">
-		<div class="col-xs-12 col-sm-12">
-			<div id="noProfileAdded">
-				<h1>Omat snapchat profiilit</h1>
-				<h2>Lisää oma snapchat tunnuksesi</h2>
-				<%= link_to 'Lisää profiili', new_profile_path, :class => "linkbutton" %>
-				<h3>Voi lisää useampia profiileita.</h3>
-			</div>
-		</div>
-	</div>
-  </div>
-</section>
-<% end %>
-<% end %>
-
 <section id="profiles">
 	<div class="container-fluid">
 		<div class="row">
@@ -29,7 +9,7 @@
 				<% @profiles.each_slice(4).each do |group| %>
 				<div class="row">
 					<% group.each do |profile| %>
-					<% if profile.user == current_user %>
+					
 						<div class="col-xs-12 col-sm-3">
 							<div class="snapchatProfileContentImage">
 							    <%= image_tag profile.image.url(:medium), :class => "img-bg" %>    
@@ -57,7 +37,7 @@
 							    </div>
 						    </div>
 						</div>
-					<% end %>	
+					
 					<% end %>
 				</div>
 				<% end %>

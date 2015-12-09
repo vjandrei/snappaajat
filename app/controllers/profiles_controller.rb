@@ -4,8 +4,6 @@ class ProfilesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :find_profile, only: [:show, :edit, :update, :destroy]
 
-  
-
   # GET /profiles
   # GET /profiles.json
 
@@ -15,6 +13,7 @@ class ProfilesController < ApplicationController
 	    else
 	      @profiles = Profile.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 12)
 	    end  
+	    @profile = current_user.profiles.build
 	end
 
   # GET /profiles/1

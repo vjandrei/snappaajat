@@ -13,4 +13,13 @@ class PagesController < ApplicationController
 	  
   end
   
+  def tags
+	   if params[:tag].present? 
+	      @profiles = Profile.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 12)
+	    else
+	      @profiles = Profile.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 12)
+	    end  
+	   
+  end
+  
 end
