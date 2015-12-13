@@ -25,6 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap', '~> 4.0.0.alpha1'
 gem 'devise', '~> 3.5', '>= 3.5.2'
 gem 'paperclip', github: 'thoughtbot/paperclip'
+gem 'papercrop'
+gem 'rmagick', '~> 2.15', '>= 2.15.4'
 gem 'will_paginate', '~> 3.0', '>= 3.0.7'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 gem 'maj-text-counter-rails'

@@ -18,6 +18,8 @@
 //= require maj-text-counter
 //= require jquery.tokeninput
 //= require profiles
+//= require jquery.jcrop
+//= require papercrop
 
 
 // Detect file input support
@@ -46,5 +48,28 @@ $( document ).ready(function() {
 		separator: "",
 		maximum: " Maksimimäärä : ",
 	});
+	
+	$('#profile_image').on('change', function(event) {
+	    var files = event.target.files;
+	    var image = files[0]
+	    var reader = new FileReader();
+	    reader.onload = function(file) {
+	      var img = new Image();
+	      console.log(file);
+	      img.src = file.target.result;
+	      $('#profile_image_target').html(img);
+	      $('#profile_image_exists').remove();
+	    }
+	    reader.readAsDataURL(image);
+	    console.log(files);
+	});
+    
+    
+     $(".profilesSnapCodeScan").on("click", function () {  
+        $(this).parent().find(".profilesSnapCode").slideToggle(function() {
+	       $(this).addClass('animated bounceInDown').css('top', '0px');
+        });
+        
+    });
 
 });

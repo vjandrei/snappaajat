@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151208075929) do
+ActiveRecord::Schema.define(version: 20151213180856) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20151208075929) do
 
   create_table "profiles", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.integer  "user_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(version: 20151208075929) do
     t.string   "nickname"
     t.string   "description"
     t.integer  "category_id"
+    t.string   "snapcode_file_name"
+    t.string   "snapcode_content_type"
+    t.integer  "snapcode_file_size"
+    t.datetime "snapcode_updated_at"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "instagram"
+    t.string   "linkedin"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
