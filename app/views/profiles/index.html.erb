@@ -29,7 +29,9 @@
 				<% @profiles.each_slice(4).each do |group| %>
 				<div class="row">
 					<% group.each do |profile| %>
-					<% if profile.user == current_user %>
+					
+					<% if user_signed_in && current_user.sign_in_count == "1" %> <% end %>
+					
 						<div class="col-xs-12 col-sm-3">
 							<div class="snapchatProfileContentImage">
 							    <%= image_tag profile.image.url(:medium), :class => "img-bg" %>    
@@ -57,7 +59,6 @@
 							    </div>
 						    </div>
 						</div>
-					<% end %>	
 					<% end %>
 				</div>
 				<% end %>
