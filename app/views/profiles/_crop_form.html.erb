@@ -11,7 +11,9 @@
   <% end %>
   
   <div class="field">
+	<% if @profile.image.exists? %>
 	<%= f.cropbox :image, :width => 355 %>
+	<% end %>
 	</div>
 
   <div class="actions">
