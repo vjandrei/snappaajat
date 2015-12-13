@@ -1,44 +1,45 @@
-<%= form_for @profile, html: { multipart: true }  do |f| %>
-  <% if @profile.errors.any? %>
-    <div id="error_explanation">
-      <h2>Virhe on tapahtunnut</h2>
-
-      <ul>
-      <% @profile.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-  <div class="field">
-    <%= f.label :image, 'Kuva' %><br>
-    <%= f.file_field :image %>
-  </div>
-
-  <div class="field">
-    <%= f.label :name, 'Nimesi' %><br>
-    <%= f.text_field :name %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :nickname, 'Snapchat käyttäjänimesi' %><br>
-    <%= f.text_field :nickname %>
-  </div>
-  
+<%= form_for(@profile) do |f| %>
+	<% if @profile.errors.any? %>
+		<div id="error_explanation">
+			<h2>Virhe on tapahtunnut</h2>
+			<ul>
+				<% @profile.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	
 	<div class="field">
-	    <%= f.label :tags, "Aihetunnisteet ( erottele pilkulla )" %>
-	    <%= f.text_field :tag_list %>
+    <%= f.label :image, 'Kuva itsestäsi' %><br>
+    <%= f.file_field :image %>
+    <div id="profile_image_target"></div>
+    <div class="text-center">
+    	<p><small>Vaiheessa 2/2 voit rajaa kuvaa</small></p>
+    </div>
+    </div>
+	
+	<div class="field">
+	<%= f.label :name, 'Nimesi' %><br>
+	<%= f.text_field :name %>
 	</div>
 	
-
-
-   <div class="field">
-    <%= f.label :description, 'Kirjoita itsestäni lyhyt esittely ( 160 merkkiä )' %>
-    <%= f.text_area :description %>
-  </div>
-  
-  <div class="actions">
-    <button class="linkbutton"><%= f.submit %></button>
-  </div>
+	<div class="field">
+	<%= f.label :nickname, 'Snapchat käyttäjänimesi' %><br>
+	<%= f.text_field :nickname %>
+	</div>
+	
+	<div class="field">
+	<%= f.label :tags, "Aihetunnisteet ( erottele pilkulla )" %>
+	<%= f.text_field :tag_list %>
+	</div>
+	
+	<div class="field">
+	<%= f.label :description, 'Kirjoita itsestäni lyhyt esittely ( 160 merkkiä )' %>
+	<%= f.text_area :description %>
+	</div>
+	
+	<div class="actions">
+	 <button class="linkbutton"> <%= f.submit 'Tallenna ja jatka' %></button>
+	</div>
 <% end %>

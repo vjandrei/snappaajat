@@ -37,6 +37,7 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       if @profile.save
+	    format.html { render 'crop' }
         format.html { redirect_to root_path, notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @profile }
       else
@@ -58,6 +59,11 @@ class ProfilesController < ApplicationController
         format.json { render json: @profile.errors, status: :unprocessable_entity }
       end
     end
+  end
+  
+  # POST /landscapes/1/crop
+  # POST /landscapes/1/crop.json
+  def crop
   end
 
   # DELETE /profiles/1
@@ -83,7 +89,7 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:name, :nickname, :description, :image, {category_ids: []}, :tag_list)
+      params.require(:profile).permit(:name, :nickname, :description, :image, {category_ids: []}, :tag_list, :image_crop_x, :image_crop_y, :image_crop_w, :image_crop_h)
     end
     
     def find_profile

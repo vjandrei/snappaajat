@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *= require token-input-facebook
+ *= require jquery.jcrop
  */
  
 
@@ -47,6 +48,9 @@ h1{
 	}
 	margin-bottom: 20px;
 	font-weight: 800;
+	&.smallHeading{
+		font-size: 3vw;	
+	}
 }
 h2{
 	color: $snap-black;
@@ -245,10 +249,18 @@ header{
 }
 
 form{
+	width: 355px;
+	margin: 0 auto;
 	.field{
 		position: relative;
 		text-align: left;
 		margin: 20px 0px;
+		p{
+			small{
+				position: relative;
+				margin-top: 5px;
+			}
+		}
 		input{
 			background: none;
 			border: solid 2px white;
@@ -302,6 +314,16 @@ form{
 			font-size: 0.7rem;
 		}
 	}
+	#profile_image_target{
+		img{
+			width: 100%;
+		}
+	}
+}
+
+#image_cropbox{
+	position: relative;
+    width: 100%;
 }
 
 .field_with_errors{
