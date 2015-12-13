@@ -12,61 +12,18 @@
 	</div>
 </div>
 
-<section id="profiles">
+
+
+<section id="profilesGrid">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-12">
-				<% @profiles.each_slice(4).each do |group| %>
-				<div class="row">
-					<% group.each do |profile| %>
-					<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-						<div class="snapchatProfileContentImage">
-							<div class="profileNameDetails">
-								<h1 class="profileName"><%= profile.name %></h1>
-								<h2 class="profileNickName">@<%= profile.nickname %></h2>
-								<div class="profileLinks">
-									    <% if profile.user == current_user %>
-									    <%= link_to 'Muokkaa', edit_profile_path(profile) %>
-									    <%= link_to 'Poista', profile, method: :delete, data: { confirm: 'Oletko varma' } %>
-									     <% end %>
-								    </div>
-							</div>
-						    <%= image_tag profile.image.url(:medium), :class => "img-bg" %>
-						</div>
-						<div class="snapchatProfileContainer">
-							
-							<div class="snapchatProfileContent">
-								<div class="snapchatProfileContentDetails">
-									<p class="profileAbout"><%= profile.description %></p>
-									<% profile.tags.any? %>
-										<div class="profileTags">
-										<% profile.tags.each do |tag| %>
-											<span class="tags">
-												#<%= link_to tag.name, tag_path(tag.name) %>
-											</span>  
-										<% end %>
-										</div>
-									
-									<div class="profileSome">
-										<a href=""><div class="linksToSome"><img src="/images/icons/facebook-icon.png" alt="facebook-icon" width="16" height="16" /></div></a>
-										<a href=""><div class="linksToSome"><img src="/images/icons/twitter-icon.png" alt="twitter-icon" width="16" height="16" /></div></a>
-										<a href=""><div class="linksToSome"><img src="/images/icons/instagram-icon.png" alt="instagram-icon" width="16" height="16" /></div></a>
-										<div class="linksToSome"><a href=""><img src="/images/icons/linkedin-icon.png" alt="linkedin-icon" width="16" height="16" /></div></a>	
-									</div>
-									<div class="clearfix"></div>
-							    </div>
-							    <div class="viewProfile">
-								    <%= link_to 'Näytä', profile %>
-							    </div>
-						    </div>
-					    </div>
-					</div>
-					<% end %>
-				</div>
-				<% end %>
+				<%= render "layouts/profilecard" %>
 			</div>
 		</div>
 	</div>
 </section>
+
+
 <!--, renderer: BootstrapPagination::Rails-->
 <%= will_paginate @profiles ,previous_label: 'Uusimmat', next_label: 'Vanhimmat', inner_window: 1, outer_window: 0 %>

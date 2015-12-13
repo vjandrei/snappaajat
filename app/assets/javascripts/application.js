@@ -63,6 +63,13 @@ $( document ).ready(function() {
 	    reader.readAsDataURL(image);
 	    console.log(files);
 	});
-	
+    
+    
+     $(".profilesSnapCodeScan").on("click", function () {  
+        $(this).parent().find(".profilesSnapCode").slideToggle(function() {
+	       $(this).addClass('animated bounceInDown').css('top', '0px');
+        });
+        
+    });
 
 });

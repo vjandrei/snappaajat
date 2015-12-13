@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209160817) do
+ActiveRecord::Schema.define(version: 20151213180856) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -42,6 +42,10 @@ ActiveRecord::Schema.define(version: 20151209160817) do
     t.string   "snapcode_content_type"
     t.integer  "snapcode_file_size"
     t.datetime "snapcode_updated_at"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "instagram"
+    t.string   "linkedin"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
