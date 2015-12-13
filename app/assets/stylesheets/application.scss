@@ -313,11 +313,12 @@ form{
 			font-size: 0.7rem;
 		}
 	}
-	#profile_image_target{
+	#profile_image_target, #profile_image_exists{
 		img{
 			width: 100%;
 		}
 	}
+	
 }
 
 #image_cropbox{

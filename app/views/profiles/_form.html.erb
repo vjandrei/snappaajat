@@ -1,4 +1,4 @@
-<%= form_for(@profile) do |f| %>
+<%= form_for @profile, html: { multipart: true }  do |f| %>
 	<% if @profile.errors.any? %>
 		<div id="error_explanation">
 			<h2>Virhe on tapahtunnut</h2>
@@ -13,11 +13,25 @@
 	<div class="field">
     <%= f.label :image, 'Kuva itsestäsi' %><br>
     <%= f.file_field :image %>
+    <% if @profile.image.exists? %>
+    
+    <% end %>
+    <div id="profile_image_exists">
+	    <% if @profile.image.exists? %>
+		<%= image_tag @profile.image.url %>
+		<% end %>
+	</div>
+    
     <div id="profile_image_target"></div>
     <div class="text-center">
     	<p><small>Vaiheessa 2/2 voit rajaa kuvaa</small></p>
     </div>
     </div>
+    
+    <div class="field">
+    <%= f.label :snapcode, 'Snapcode' %><br>
+    <%= f.file_field :snapcode %>
+	</div>
 	
 	<div class="field">
 	<%= f.label :name, 'Nimesi' %><br>

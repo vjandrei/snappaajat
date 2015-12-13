@@ -58,6 +58,7 @@ $( document ).ready(function() {
 	      console.log(file);
 	      img.src = file.target.result;
 	      $('#profile_image_target').html(img);
+	      $('#profile_image_exists').remove();
 	    }
 	    reader.readAsDataURL(image);
 	    console.log(files);
